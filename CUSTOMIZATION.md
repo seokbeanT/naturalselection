@@ -10,6 +10,7 @@
 | 전체 세대 수 | `LAST_GENERATION` | `5` |
 | 고정 제거 개수 | `FIXED_REMOVE_GOAL` | `10` |
 | 시간제한 | `TIME_LIMIT_SECONDS` | `5` |
+| 추적 모드 이동 속도 | `moveDuration` 계산식 | 마지막의 `*.85`가 작을수록 빠름 |
 | 공 색상 | `COLORS`의 `hex` | 빨강 `#e44138` |
 | 배경색 | `HABITATS`의 `hex` | 노랑 `#f1c51f` |
 | 번식 배율 | `doubleCounts()` | 현재 각 색상 `× 2` |
@@ -27,6 +28,16 @@ const TIME_LIMIT_SECONDS = 8;
 ```ts
 const FIXED_REMOVE_GOAL = 15;
 ```
+
+## 예: 추적 모드의 공을 조금 더 빠르게 변경
+
+`population()` 함수 안의 다음 계산에서 마지막 배율을 줄입니다.
+
+```ts
+const moveDuration = (5 + Math.hypot(moveX - x, moveY - y) / 25) * .75;
+```
+
+현재 값은 `.85`이며, `.75`처럼 더 작게 바꾸면 이동 시간이 짧아져 공이 빨라집니다.
 
 ## 예: 번식을 1.5배로 변경
 

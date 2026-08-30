@@ -34,7 +34,15 @@ Git 저장소를 연결한 뒤 다음 값을 확인합니다.
 
 ## 5. GitHub Pages
 
-먼저 `npm run build`로 만든 `dist`의 내용을 Pages 배포 브랜치나 GitHub Actions를 통해 게시합니다. `vite.config.ts`의 `base: "./"` 설정 덕분에 저장소 하위 주소에서도 정적 자산을 불러올 수 있습니다.
+프로젝트에 자동 배포 파일 `.github/workflows/deploy-pages.yml`이 포함되어 있습니다.
+
+1. GitHub에서 새 저장소를 만듭니다.
+2. 압축을 푼 폴더 안의 파일을 저장소 루트에 모두 업로드합니다.
+3. 저장소의 `Settings → Pages`에서 배포 방식을 `GitHub Actions`로 선택합니다.
+4. `main` 브랜치에 파일이 올라가면 자동으로 설치·빌드·배포가 진행됩니다.
+5. `Actions` 탭에서 작업이 완료되면 Pages 주소를 확인합니다.
+
+`vite.config.ts`의 `base: "./"` 설정 덕분에 저장소 하위 주소에서도 정적 자산을 불러올 수 있습니다.
 
 ## 6. 업데이트 방법
 
